@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSecHub – Home</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #50beda00;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo img {
+    height: 65px;
+    border-radius: 50px;
+    width: 65px;
+  }
+
+  /* Burger menu always visible */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1100;
+    padding: 10px;
+    margin-right: 35px; /* not at the very edge */
+  }
+
+  .burger div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .burger:hover div {
+    background-color: cyan;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -290px;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    gap: 15px;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    padding-left: 20px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: 0.3s;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+
+  nav a:hover {
+    background: rgba(0,255,255,0.15);
+  }
+
+  nav.show {
+    right: 20px; /* shows slightly away from the right edge */
+  }
+
+  /* Hero */
+  .hero {
+    background: url(hreo.jpg) center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    margin: 90px;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+  }
+
+  .hero h1 {
+    font-size: 3em;
+    background: linear-gradient(to right, cyan, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin-top: 10px;
+  }
+
+  /* Cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 25px;
+    padding: 100px 50px 50px 50px;
+  }
+
+  .card {
+    position: relative;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.6);
+    transition:0.3s;
+  }
+
+  .card:hover::before {
+    background: rgba(0,0,0,0.8);
+  }
+
+  .card-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+  }
+
+  .card h3 {
+    margin:0;
+    font-size:1.3em;
+  }
+
+  .card p {
+    opacity:0;
+    max-width:250px;
+    transition:0.3s;
+    font-size:0.95em;
+  }
+
+  .card:hover p {
+    opacity:1;
+  }
+
+  .card button {
+    margin-top:10px;
+    padding:8px 16px;
+    background:cyan;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+  }
+
+  .card button:hover {
+    background:white;
+    color:black;
+  }
+
+  footer {
+    text-align:center;
+    padding:40px;
+    background:#000;
+    color:gray;
+  }
+.feature{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+  }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg.jpg" alt="">
+        <h1>CyberSecHub</h1> 
+  </div>
+  <div class="burger" onclick="toggleMenu()" title="Menu">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav id="nav">
+    <a href="password-security.html">Password Security</a>
+    <a href="phishing-awareness.html">Phishing</a>
+    <a href="2fa-effectiveness.html">2FA</a>
+    <a href="encrypted-messages.html">Encryption</a>
+    <a href="brute-force.html">Brute Force</a>
+    <a href="ai-threat-detection.html">AI Threats</a>
+    <a href="malware-spread.html">Malware</a>
+    <a href="website-tracking.html">Tracking</a>
+    <a href="wifi-sniffing.html">Wi-Fi</a>
+    <a href="firewall.html">Firewall</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to CyberSecHub</h1>
+  <p>Explore interactive cybersecurity experiments — from password cracking to AI-driven defense systems. Learn, simulate, and understand how hackers think and how to defend your systems.</p>
+</section>
+<h1 class="feature">FEATURES IN THIS WEBSITE</h1>
+<section class="cards">
+  <!-- Cards with related images -->
+  <div class="card" style="background:url(OIP.jpg) center/cover;">
+    <div class="card-content">
+      <h3>Password Security</h3>
+      <p>Test how long it takes to crack weak vs. strong passwords.</p>
+      <button onclick="location.href='password-security.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(phising.webp) center/cover;">
+    <div class="card-content">
+      <h3>Phishing Awareness</h3>
+      <p>Discover how phishing websites trick users and learn to spot them.</p>
+      <button onclick="location.href='phishing-awareness.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(download.webp) center/cover;">
+    <div class="card-content">
+      <h3>Two-Factor Authentication</h3>
+      <p>See how 2FA protects your accounts from hackers.</p>
+      <button onclick="location.href='2fa-effectiveness.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(encry.webp) center/cover;">
+    <div class="card-content">
+      <h3>Encrypted Messages</h3>
+      <p>Learn how end-to-end encryption keeps your messages private.</p>
+      <button onclick="location.href='encrypted-messages.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(brtatt.webp) center/cover;">
+    <div class="card-content">
+      <h3>Brute Force Attack</h3>
+      <p>Simulate how computers guess passwords by brute force.</p>
+      <button onclick="location.href='brute-force.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(aicyb.webp) center/cover;">
+    <div class="card-content">
+      <h3>AI in Cybersecurity</h3>
+      <p>Understand how AI detects and blocks cyber threats.</p>
+      <button onclick="location.href='ai-threat-detection.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(mlwr.webp) center/cover;">
+    <div class="card-content">
+      <h3>Malware Spread</h3>
+      <p>Visualize how malware spreads across networks.</p>
+      <button onclick="location.href='malware-spread.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(wbtrk.webp) center/cover;">
+    <div class="card-content">
+      <h3>Website Tracking</h3>
+      <p>See how cookies and IPs are used to follow user behavior.</p>
+      <button onclick="location.href='website-tracking.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80') center/cover;">
+    <div class="card-content">
+      <h3>Wi-Fi Sniffing</h3>
+      <p>Understand how insecure networks leak sensitive data.</p>
+      <button onclick="location.href='wifi-sniffing.html'">Explore</button>
+    </div>
+  </div>
+
+  <div class="card" style="background:url(frwl.webp) center/cover;">
+    <div class="card-content">
+      <h3>Simple Firewall</h3>
+      <p>Build a basic firewall to filter and protect network traffic.</p>
+      <button onclick="location.href='firewall.html'">Explore</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 CyberSecHub. All Rights Reserved.
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('nav').classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
